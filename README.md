@@ -12,7 +12,7 @@ Configure SSH banner | Configure SSH banner | Configure SSH banner
 Install Apache | Install gunicorn (Python HTTP server) | Install MySQL
 Configure Apache as reverse proxy | Configure gunicorn to run as service using supervisor | Create database
 Restart Apache | Deploy application code | Create table and import sample data
-| Restart services
+ | Restart services
 
 ## Running this project
 Open terminal window and run the following commands
