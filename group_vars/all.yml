@@ -1,0 +1,7 @@
+ansible_python_interpreter: /usr/bin/python3
+#environment_name: Development
+application_name:  bestsongs
+application_port: 8000
+mysql_db_name: "{{application_name}}_db"
+mysql_user: mysql_admin
+#mysql_db_engine: MySQL

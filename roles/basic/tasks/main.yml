@@ -1,0 +1,28 @@
+#- name: Install the package "foo"
+#  apt:
+#    name: foo
+#    state: present
+
+#- name: Remove "foo" package
+#  apt:
+#    name: foo
+#    state: absent
+
+#- name: Upgrade "foo" package if needed
+#  apt:
+#    name: foo
+#    state: latest
+
+- name: "Installing additional software"
+  apt: name={{ item }} state=latest
+  with_items:
+  - dnsutils
+  - git
+  - vim
+  - ntp
+  - at
+  - lvm2
+
+- name: "Adding SSH Banner"
+  copy: src=../files/ssh_banner.txt dest=/etc/ssh_banner.txt owner=root group=root mode=0644
+  notify: update ssh configuration

@@ -1,0 +1,28 @@
+- name: "Installing required software"
+  apt: name={{ item }} state=present
+  with_items:
+  - gunicorn
+  - supervisor
+  - python-mysqldb
+  - python-falcon
+
+- name: "Making sure supervisor is enabled and started"
+  service: name=supervisor state=started enabled=yes
+
+- name: "Creating the base folder of the application"
+  file: path=/opt/{{ application_name }} state=directory owner=nobody group=nogroup mode=0755
+
+- name: "Get dbserver FQDN"
+  local_action: set_fact
+    dbserver_fqdn="{{ groups['dbservers'][0] }}"
+
+- name: "Copying the application"
+  template: src=../files/{{ application_name }}_py.j2 dest=/opt/{{ application_name }}/{{ application_name }}.py owner=nobody group=nogroup mode=0755
+  notify:
+  - restart-app
+
+- name: "Copying the supervisor config file"
+  template: src=../files/{{ application_name }}_conf.j2 dest=/etc/supervisor/conf.d/{{ application_name }}.conf owner=nobody group=nogroup mode=0644
+  notify:
+  - reread-config
+  - restart-app

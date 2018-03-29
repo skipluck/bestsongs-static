@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: true
+  roles:
+  - basic
+
+- hosts: webservers
+  become: true
+  roles:
+  - webserver
+
+- hosts: appservers
+  become: true
+  roles:
+  - appserver
+
+- hosts: dbservers
+  become: true
+  roles:
+  - dbserver
