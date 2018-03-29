@@ -12,29 +12,26 @@ Configure SSH banner | Configure SSH banner | Configure SSH banner
 Install Apache | Install gunicorn (Python HTTP server) | Install MySQL
 Configure Apache as reverse proxy | Configure gunicorn to run as service using supervisor | Create database
 Restart Apache | Deploy application code | Create table and import sample data
- | Restart services
+| Restart services |
 
 ## Running this project
 Open terminal window and run the following commands
 
 ### Install Ansible on Ubuntu Linux
-* sudo apt-get install python3 python3-pip
+* sudo apt-get install git python3 python3-pip
 * pip3 install --upgrade pip
 * pip3 install virtualenv
 
-### Create required folders
-* mkdir -p ~/Projects/Ansible/BestSongs
+### Cloning this project from github
+* git clone https://github.com/skipluck/bestsongs-static
 
 ### Creating Ansible Project Virtual Environment
-* cd ~/Projects/Ansible/BestSongs
+* cd bestsongs-static
 * virtualenv --python=/usr/bin/python3 BestSongs
 * source BestSongs/bin/activate
 
 ### Installing Ansible and other packages
 * pip3 install ansible
-
-### Cloning this project from github
-* git clone https://github.com/skipluck/bestsongs-static
 
 ### Edit hosts files
 * Open hosts file in your favorite editor and add respective hostsnames for web, app and db servers
