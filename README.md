@@ -24,9 +24,8 @@ Open terminal window and run the following commands
 ### Install Ansible on Ubuntu Linux
 ````
 sudo apt-get update
-sudo apt-get install git python3 python3-pip
+sudo apt-get install git python3 python3-pip python3-venv libssl-dev
 pip3 install --upgrade pip
-pip3 install virtualenv
 ````
 
 ### Cloning this project from github
@@ -37,7 +36,7 @@ git clone https://github.com/skipluck/bestsongs-static
 ### Creating Ansible Project Virtual Environment
 ````
 cd bestsongs-static
-virtualenv --python=/usr/bin/python3 BestSongs
+python3 -m venv BestSongs
 source BestSongs/bin/activate
 ````
 
